@@ -7,6 +7,7 @@ const generateTarget = () => {
     return Math.floor(Math.random() * 10);
 }
 
+/*
 const compareGuesses = (userGuess, computerGuess, target) => {
     const userDifferense = Math.abs(userGuess - target);
     const computerDifferense = Math.abs(computerGuess - target);
@@ -16,6 +17,23 @@ const compareGuesses = (userGuess, computerGuess, target) => {
         return false;
     }
 }
+*/
+
+// getAbsoluteDistance solution start
+const getAbsoluteDistance = (num1, num2) => {
+    return Math.abs(num1 - num2);
+}
+
+const compareGuesses = (userGuess, computerGuess, target) => {
+    if (userGuess < 0 || userGuess > 9) {
+        alert('Please enter a number between 0 and 9.')
+    } else if (getAbsoluteDistance(userGuess, target) <= getAbsoluteDistance(computerGuess, target)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// getAbsoluteDistance solution end
 
 const updateScore = winner => {
     if (winner === 'human') {
