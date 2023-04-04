@@ -19,20 +19,42 @@ const compareGuesses = (userGuess, computerGuess, target) => {
 }
 */
 
+// if ((x >= xmin) && (x <= xmax)) solution start
+let min = 0;
+let max = 9;
+
+const getAbsoluteDistance = (num1, num2) => {
+  return Math.abs(num1 - num2);
+}
+
+const numberInRange = (userGuess, min, max) => {
+  return userGuess >= min && userGuess <= max;
+}
+
+const compareGuesses = (userGuess, computerGuess, target) => {
+  if (numberInRange(userGuess, min, max)) {
+    return getAbsoluteDistance(userGuess, target) <= getAbsoluteDistance(computerGuess, target);
+  }
+  alert('Please enter a number between 0 and 9!');
+}
+// if ((x >= xmin) && (x <= xmax)) solution end
+
 // getAbsoluteDistance solution start
+/*
 const getAbsoluteDistance = (num1, num2) => {
     return Math.abs(num1 - num2);
 }
 
 const compareGuesses = (userGuess, computerGuess, target) => {
     if (userGuess < 0 || userGuess > 9) {
-        alert('Please enter a number between 0 and 9.')
+        alert('Please enter a number between 0 and 9!')
     } else if (getAbsoluteDistance(userGuess, target) <= getAbsoluteDistance(computerGuess, target)) {
         return true;
     } else {
         return false;
     }
 }
+*/
 // getAbsoluteDistance solution end
 
 const updateScore = winner => {
