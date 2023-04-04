@@ -7,10 +7,10 @@ const generateTarget = () => {
     return Math.floor(Math.random() * 10);
 }
 
-const compareGuesses = (userGuess, computerGuess, secretNumber) => {
-    const userDifferense = Math.abs(userGuess - secretNumber);
-    const computerDifferense = Math.abs(computerGuess - secretNumber);
-    if (userDifferense >= computerDifferense) {
+const compareGuesses = (userGuess, computerGuess, target) => {
+    const userDifferense = Math.abs(userGuess - target);
+    const computerDifferense = Math.abs(computerGuess - target);
+    if (userDifferense <= computerDifferense) {
         return true;
     } else {
         return false;
